@@ -27,6 +27,7 @@ module.exports.get_by_id = (event, context, callback) => {
     connect_to_db().then(() => {
         console.log('=> get_all talks');
         talk.find({_id: body.id})
+            .select('transcript')
             .skip((body.doc_per_page * body.page) - body.doc_per_page)
             .limit(body.doc_per_page)
             .then(talks => {
