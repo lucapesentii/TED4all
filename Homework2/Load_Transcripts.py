@@ -93,7 +93,7 @@ tedx_dataset_agg = tedx_dataset_main.join(tags_dataset_agg, tedx_dataset.id == t
     .drop("id_ref")
 
 
-# READ RELATED_VIDEOS DATASET
+# READ TRANSCRIPT_VIDEOS DATASET
 transcript_dataset_path = "s3://tedx-data/transcripts.csv"
 transcript_dataset = spark.read \
     .option("header","true") \
