@@ -1,19 +1,15 @@
-class Talk {
-  final String title;
-  final String details;
-  final String mainSpeaker;
-  final String url;
+class Transcript {
+  final String time;
+  final String text;
 
-  Talk.fromJSON(Map<String, dynamic> jsonMap) :
-    title = jsonMap['title'],
-    details = jsonMap['description'],
-    mainSpeaker = (jsonMap['speaker'] ?? ""),
-    url = (jsonMap['url'] ?? "");
+  Transcript.fromJSON(Map<String, dynamic> jsonMap) :
+    time = (jsonMap['time'] ?? ""),
+    text = (jsonMap['text'] ?? "");
 }
 
-class RelatedVideos {
-  final List<Talk> relatedVideos;
+class TranscriptList {
+  final List<Transcript> transcript;
 
-  RelatedVideos.fromJSON(Map<String, dynamic> json) :
-    relatedVideos = (json['related_videos'] as List).map((i) => Talk.fromJSON(i)).toList();
+  TranscriptList.fromJSON(Map<String, dynamic> jsonMap) :
+    transcript = (jsonMap['transcript'] as List).map((i) => Transcript.fromJSON(i)).toList();
 }
